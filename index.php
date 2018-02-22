@@ -146,6 +146,7 @@
     <div class="container">
     </div>
   </section> <!-- end upcoming events -->
+
         <!-- events -->
   <section class="section-wrap process" style="background-image: url(<?php echo get_template_directory_uri();?>/img/upcomingevent.png)">
 
@@ -153,15 +154,30 @@
 
       <div class="row heading">
         <div class="col-md-6 col-md-offset-3">
+
           <h2 class="text-center color-white bottom-line">Our upcoming events</h2>
         </div>
       </div>
 
       <div class="row">
-              <h4 class="color-white text-center text-spec">Android Masters</h4>
+          <?php
+
+          $values = array('post_type'=>'Our upcoming events');
+          $query = new wp_query($values);
+
+          if ($query -> have_posts()){
+          while ($query ->have_posts()){
+          $query ->the_post();
+          ?>
+
+          <!-- <h2 class="text_info"></h2> -->
+
+              <h4 class="color-white text-center text-spec"> <?php the_title(); ?></h4>
                       <p class="subheading text-center color-white"><i class="fa fa-calendar-o" aria-hidden="true" style="margin-right: 6px;font-size: 18px;"></i>
                           Soon </p>
-                        <a href="https://www.google.com/maps/search/Smart+Village+-+28+Km+by+Cairo+%2F+Alexandria+Desert+Road+-+6+October+-+Building+B148+,+Cairo,+eg/@30.0721421,31.0171291,17z/data=!3m1!4b1?hl=en" target="_blank"><p class="subheading text-center color-white text-spec-edit"><i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 6px;font-size: 18px;"></i> We will be announcing soon </p></a>
+                        <a href=""
+                           target="_blank"><p class="subheading text-center color-white text-spec-edit">
+                                <i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 6px;font-size: 18px;"></i> We will be announcing soon </p></a>
 
 
           <!-- Start counter -->
@@ -202,6 +218,7 @@
 
       </div>
     </div>
+      <?php } } ?>
   </section> <!-- events -->
     
     
@@ -288,13 +305,13 @@
     <div class="container">
 
       <div class="row heading">
+
         <div class="col-md-6 col-md-offset-3">
           <h2 class="text-center bottom-line">Our Amazing Team</h2>
         </div>
       </div>
 
       <div class="row team-row">
-
         <div class="col-md-3 col-sm-4 team-wrap">
           <div class="team-member text-center">
             <div class="team-img">
@@ -916,10 +933,11 @@
           </div>
         </div> <!-- end team member -->
 
-        
+
 
       </div>
     </div>
+
   </section> <!-- end our team -->
     
     <!-- Call to Action -->

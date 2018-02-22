@@ -45,3 +45,32 @@
 
 
     add_action('wp_enqueue_scripts', 'add_files');
+
+    function create_post_type(){
+
+        $values = array(
+            'public' => true,
+            'labels' => array('name'=>'Our upcoming events'),
+            'menu_icon' => 'dashicons-smiley',
+            'menu_position' => 5,
+                'supports' => array('title', 'editor', 'thumbnail'),
+           );
+
+        register_post_type('Our upcoming events',$values);
+
+
+
+        $values = array(
+            'public' => true,
+            'labels' => array('name'=>'new member'),
+            'menu_icon' => 'dashicons-smiley',
+            'menu_position' => 10,
+            'supports' => array('title', 'editor', 'thumbnail'),
+            );
+
+            register_post_type('new member',$values);
+}
+
+    add_action('init','create_post_type');
+
+

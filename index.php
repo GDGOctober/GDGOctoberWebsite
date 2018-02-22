@@ -1066,7 +1066,7 @@
         </div>
         <div class="col-sm-3 sl img-responsive">
             <br><br><br>
-          <img src=<?php echo get_template_directory_uri();?>/"img/partners/tna.png" alt="">
+          <img src="<?php echo get_template_directory_uri();?>/img/partners/tna.png" alt="">
         </div>
           
           <div class="col-sm-12 sl img-responsive">

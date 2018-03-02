@@ -378,6 +378,7 @@ p {
 
 .nav-wrap {
   width: 60%;
+  float: left;
 }
 
 .menu-socials {
@@ -4191,22 +4192,6 @@ p.footer-address {
 }
 
 /*# sourceMappingURL=style.css.map */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .circle,
 .border {

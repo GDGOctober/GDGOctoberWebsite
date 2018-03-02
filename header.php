@@ -50,33 +50,17 @@
               </div>
             </div> <!-- end navbar-header -->
 
-
-            <div class="col-md-8 col-xs-12 nav-wrap">
-              <div class="collapse navbar-collapse text-center" id="navbar-collapse">
-
-                <ul class="nav navbar-nav local-scroll text-center">
-
-                  <li class="active">
-                    <a href="#home">Home</a>
-                  </li>
-                  <li>
-                    <a href="#services">Our events</a>
-                  </li>
-                  <li>
-                    <a href="#about-us">Our team</a>
-                  </li> 
-                    <!--
-                  <li>
-                    <a href="#blog">Blog</a>
-                  </li> -->
-                  <li>
-                    <a href="#contact">Contact</a>
-                  </li>
-
-                </ul>
-              </div>
-            </div> <!-- end col -->
-
+            <!-- Start navbar menu -->
+            <?php 
+              $menu = array(
+                'menu'              => 'header-menu',
+                'menu_class'        => 'nav navbar-nav local-scroll text-center',
+                'container_class'   => 'collapse navbar-collapse nav-wrap text-center',
+                'container_id'      => 'navbar-collapse',
+              );
+              wp_nav_menu($menu); ?>
+            <!-- End navbar menu -->
+            
             <div class="menu-socials hidden-sm hidden-xs">
               <ul>
                 <li>

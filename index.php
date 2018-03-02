@@ -59,7 +59,6 @@
     </div>
   </section>
 
-
   <!-- Intro -->
   <section class="section-wrap intro" id="intro">
     <div class="container-fluid">
@@ -97,7 +96,6 @@
     </div>
   </section> <!-- end intro -->
   
-
   <!-- Results -->
   <section class="result-boxes">
     <div class="container-fluid">
@@ -106,7 +104,7 @@
         <div class="col-md-4 nopadding">
           <div class="statistic result-box result-box-first">
             <div class="result-wrap clearfix">
-              <i class="icon icon-User "></i>
+              <i class="fa fa-user "></i>
               <span class="timer" data-from="0" data-to="4000">&nbsp;</span><span>+</span>
               <span class="counter-text">participants</span>
             </div>              
@@ -116,7 +114,7 @@
         <div class="col-md-4 nopadding">
           <div class="statistic result-box result-box-second">
             <div class="result-wrap clearfix">
-              <i class="icon icon_mic"></i>
+              <i class="fa fa-microphone"></i>
               <span class="timer" data-from="0" data-to="40">&nbsp;</span><span>+</span> <span>&nbsp;</span>
               <span class="counter-text">Speakers</span>
             </div>            
@@ -126,7 +124,7 @@
         <div class="col-md-4 nopadding">
           <div class="statistic result-box result-box-third">
             <div class="result-wrap clearfix">
-              <i class="icon icon_calendar"></i>
+              <i class="fa fa-calendar"></i>
               <span class="timer" data-from="0" data-to="9">&nbsp;</span><span> &nbsp; &nbsp; &nbsp; &nbsp;</span>
               <span class="counter-text ">Events</span> 
             </div>            
@@ -137,17 +135,13 @@
     </div>
   </section> <!-- end results-->
     
-    
-
-
-
   <!-- Our upcoming events -->
   <section class="section-wrap-fix bg-light pb-mdm-50" id="services">
     <div class="container">
     </div>
   </section> <!-- end upcoming events -->
 
-        <!-- events -->
+        <!-- Start event Section -->
   <section class="section-wrap process" style="background-image: url(<?php echo get_template_directory_uri();?>/img/upcomingevent.png)">
 
     <div class="container">
@@ -155,30 +149,25 @@
       <div class="row heading">
         <div class="col-md-6 col-md-offset-3">
 
-          <h2 class="text-center color-white bottom-line">Our upcoming events</h2>
+          <h2 class="text-center color-white bottom-line">Upcoming events</h2>
         </div>
       </div>
 
       <div class="row">
+
           <?php
 
-          $values = array('post_type'=>'Our upcoming events');
-          $query = new wp_query($values);
+            $events = array('post_type'=>'Upcoming events');
+            $query = new wp_query($events);
 
-          if ($query -> have_posts()){
-          while ($query ->have_posts()){
-          $query ->the_post();
+            if ($query->have_posts()){
+              while($query -> have_posts()){
+                $query -> the_post();
           ?>
 
-          <!-- <h2 class="text_info"></h2> -->
+                <h4 class="color-white text-center text-spec"> <?php the_title(); ?></h4>
 
-              <h4 class="color-white text-center text-spec"> <?php the_title(); ?></h4>
-                      <p class="subheading text-center color-white"><i class="fa fa-calendar-o" aria-hidden="true" style="margin-right: 6px;font-size: 18px;"></i>
-                          Soon </p>
-                        <a href=""
-                           target="_blank"><p class="subheading text-center color-white text-spec-edit">
-                                <i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 6px;font-size: 18px;"></i> We will be announcing soon </p></a>
-
+                <?php the_content(); ?>
 
           <!-- Start counter -->
           <!-- 
@@ -218,9 +207,11 @@
 
       </div>
     </div>
-      <?php } } ?>
-  </section> <!-- events -->
-    
+      <?php 
+            }
+              } 
+      ?>
+  </section>  <!-- End event Section -->
     
   <!-- Call to Action -->
   <section class="call-to-action">
@@ -238,8 +229,6 @@
       </div>
     </div>
   </section> <!-- end call to action -->
-
-
 
   <!-- Promo Section -->
   <section class="section-wrap promo-section bg-dark">
@@ -299,645 +288,31 @@
     </div> <!-- end slider -->
   </section> <!-- end promo section -->
   
-
   <!-- Our Team -->
   <section class="section-wrap our-team" id="about-us">
     <div class="container">
 
+      <?php 
+
+          $members = array('post_type'=>'New member');
+          $query   = new wp_query($members);
+          if($query->have_posts()){
+            while($query->have_posts()){
+              $query -> the_post();
+      ?>
       <div class="row heading">
-
         <div class="col-md-6 col-md-offset-3">
-          <h2 class="text-center bottom-line">Our Amazing Team</h2>
+          <h2 class="text-center bottom-line"><?php the_title(); ?></h2>
         </div>
-      </div>
-
-      <div class="row team-row">
-        <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/ahmed_sobhy.jpg"  alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Ahmed Sobhy</h6>
-            <span>Founder</span>           
-          </div>
-        </div> <!-- end team member -->
-          <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/mohamed_said2.jpg"   alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Muhammed Saied</h6>
-            <span>CO-Founder</span>           
-          </div>
-        </div> <!-- end team member -->
-          <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/eslam-min.jpg"  alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Eslam Medhat</h6>
-            <span>President</span>           
-          </div>
-        </div> <!-- end team member -->
-          <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/Muhammednasser.png"  alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Muhammed Nasser</h6>
-            <span>Media Head</span>           
-          </div>
-        </div> <!-- end team member -->
-          <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/ShadyRashad-min.JPG" alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Shady Rashad</h6>
-            <span>IT Head</span>           
-          </div>
-        </div> <!-- end team member -->
-          <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/KhadigaMashaal-min.JPG"  alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Khadiga Mashaal</h6>
-            <span>PR Head</span>           
-          </div>
-        </div> <!-- end team member -->
-          <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/Abdelrahman_Salah-min.JPG" alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Abdelrahman Salah</h6>
-            <span>HR Head</span>           
-          </div>
-        </div> <!-- end team member -->
-          <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/Eslam_Shaker-min.JPG" alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Eslam Shaker</h6>
-            <span>DCR Head</span>           
-          </div>
-        </div> <!-- end team member -->
-          <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/MohamedElamir-min.jpg" alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Mohamed Elamir</h6>
-            <span>IT Sub-Head</span>           
-          </div>
-        </div> <!-- end team member -->
-          <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/ismael-min.jpg"  alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Ismael Mibr</h6>
-            <span>IT Sub-Head</span>           
-          </div>
-        </div> <!-- end team member -->
-          <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/Sayed_khairy-min.jpg"  alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Sayed Khairy</h6>
-            <span>IT Member</span>           
-          </div>
-        </div> <!-- end team member -->
-        <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/Belal_Magdy.jpg"  alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Belal Magdy</h6>
-            <span>IT Member</span>           
-          </div>
-        </div> <!-- end team member -->
-          <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/Lobna%20Ibrahim.jpg" alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Lobna Ibrahim</h6>
-            <span>IT Member</span>           
-          </div>
-        </div> <!-- end team member -->
-          <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/Andrew_Emad-min.JPG" alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Andrew Emad</h6>
-            <span>IT Member</span>           
-          </div>
-        </div> <!-- end team member -->
-          <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/Abdallah_Shehap-min.JPG"  alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Abdallah Shehap</h6>
-            <span>IT Member</span>           
-          </div>
-        </div> <!-- end team member -->
-          <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/EslamElreedy-min.jpg" alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Eslam Elreedy</h6>
-            <span>IT Member</span>           
-          </div>
-        </div> <!-- end team member -->
-          <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/Marwan%20Ismail.jpg"   alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Marwan Ismail</h6>
-            <span>Media Member</span>           
-          </div>
-        </div> <!-- end team member -->
-          <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/Ahmed_Shawkey-min.JPG"   alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Ahmed Shawkey</h6>
-            <span>Media Member</span>           
-          </div>
-        </div> <!-- end team member -->
-          <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/mohamed_emam-min.jpg"   alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Mohamed Emam</h6>
-            <span>Media Member</span>           
-          </div>
-        </div> <!-- end team member -->
-          <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/Belalelgendy-min.jpg"   alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Belal Elgendy</h6>
-            <span>Media Member</span>           
-          </div>
-        </div> <!-- end team member -->
-          <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/Abdulhameed_mahmoud-min.JPG"   alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Abdelhamed Mahmoud</h6>
-            <span>Media Member</span>           
-          </div>
-        </div> <!-- end team member -->
-            <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/Ayaahmed-min.jpg"   alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Aya Ahmed</h6>
-            <span>Media Member</span>           
-          </div>
-        </div> <!-- end team member -->
-          <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/Mina%20Nazmy.jpg"   alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Mina Nazmy</h6>
-            <span>HR Member</span>           
-          </div>
-        </div> <!-- end team member -->
-          <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/Ahmed_Fekry-min.JPG"   alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Ahmed Fekry</h6>
-            <span>DCR Member</span>           
-          </div>
-        </div> <!-- end team member -->
-          <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/Abdo%20Said.jpg"   alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Abdelrahman Said</h6>
-            <span>DCR Member</span>           
-          </div>
-        </div> <!-- end team member -->
-          <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/Mohamed%20El%20Banna.jpg"   alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Mohamed El Banna</h6>
-            <span>AC Member</span>           
-          </div>
-        </div> <!-- end team member -->
-          <div class="col-md-3 col-sm-4 team-wrap">
-          <div class="team-member text-center">
-            <div class="team-img">
-              <img src="<?php echo get_template_directory_uri();?>/img/team/MargretRafaat%20-min.JPG"   alt="">
-              <div class="overlay">
-                <div class="team-details text-center">
-                  <p>
-                      Google Developer Group Is Awesome Community
-
-                  </p>
-                  <div class="socials mt-20">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h6 class="team-title">Margret Rafaat</h6>
-            <span>AC Member</span>           
-          </div>
-        </div> <!-- end team member -->
-
-
-
       </div>
     </div>
 
+    <?php
+              the_content();
+
+            }
+          }
+    ?>
   </section> <!-- end our team -->
     
     <!-- Call to Action -->
@@ -970,7 +345,6 @@
       <h1 class="text-center" style="padding: 20px;background-color: #000;color: #FFF;max-width: 400px;margin: auto;" >SOON</h1>
     </div>
   </section> --> <!-- end from blog -->
-
 
   <!-- Testimonials -->
   <section class="section-wrap parallax-testimonials" style="background-image: url(<?php echo get_template_directory_uri();?>/img/gdg-oct.png)">
@@ -1018,7 +392,6 @@
     </div>
 
   </section> <!-- end testimonials -->
-
 
   <!-- sponsor -->
   <section class="section-wrap clients bg-light">
@@ -1074,7 +447,6 @@
           <img src="<?php echo get_template_directory_uri();?>/img/partners/o6u.png" width="" alt="">
         </div>
       </div>
-        
 
     </div>      
   </section> <!-- end sponsor -->
@@ -1135,44 +507,4 @@
     </div>
   </section> <!-- end contact -->
 
-
-  <!-- Footer -->
-  <footer class="footer minimal bg-dark">
-    <div class="container">
-      <div class="row">
-
-        <div class="col-md-4 col-md-offset-4">
-          
-          <div class="footer-logo local-scroll mb-30 wow zoomIn" data-wow-duration="1s" data-wow-delay="0.2s">
-            <h2>
-              <a href="#home" class="color-white">GDG 6 October city</a>
-            </h2>
-          </div>
-
-          <div class="socials footer-socials">
-            <a href="https://www.facebook.com/GDGOctober/" target="_blank"><i class="fa fa-facebook"></i></a>
-            <a href="https://www.meetup.com/GDG-6-October/" target="_blank"><i class="fa fa-meetup"></i></a>
-            <a href="https://plus.google.com/u/0/b/105609152381762460369/+GDG6October" target="_blank"><i class="fa fa-google-plus"></i></a>
-            <a href="https://twitter.com/GDGOctober" target="_blank"><i class="fa fa-twitter"></i></a>
-            <a href="https://www.youtube.com/channel/UCb1W9Tl-mqNzwV70PVNEIvQ" target="_blank"><i class="fa fa-youtube-play"></i></a>
-          </div> <!-- end socials -->
-
-          <span class="copyright text-center">
-            ©2017 GDG 6 OCT  | Made by GDG 6 OCT</span>
-
-        </div>
-
-      </div>
-    </div>
-  </footer> <!-- end footer -->
-
-  <div id="back-to-top">
-    <a href="#top"><i class="fa fa-angle-up"></i></a>
-  </div>
-
-</div> <!-- end main-wrapper -->
-
-<!-- jQuery Scripts -->
-<?php wp_footer(); ?>
-</body>
-</html>
+    <?php get_footer(); ?>

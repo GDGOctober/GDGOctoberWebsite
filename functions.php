@@ -46,31 +46,40 @@
 
     add_action('wp_enqueue_scripts', 'add_files');
 
+    // Add menus
+    function register_menus(){
+        register_nav_menus( array(
+            'header-location'   => 'header',
+            'footer-location'   => 'footer'
+        ) );
+    }
+    add_action( 'init', 'register_menus');
+
+    // Add upcoming events 
     function create_post_type(){
 
-        $values = array(
-            'public' => true,
-            'labels' => array('name'=>'Our upcoming events'),
-            'menu_icon' => 'dashicons-smiley',
+        $events = array(
+            'public'        => true,
+            'labels'        => array('name'=>'Upcoming events'),
+            'menu_icon'     => 'dashicons-calendar-alt',
             'menu_position' => 5,
-                'supports' => array('title', 'editor', 'thumbnail'),
+            'supports'      => array('title', 'editor', 'thumbnail'),
            );
 
-        register_post_type('Our upcoming events',$values);
+        register_post_type('Upcoming events',$events);
 
 
-
-        $values = array(
-            'public' => true,
-            'labels' => array('name'=>'new member'),
-            'menu_icon' => 'dashicons-smiley',
+    // Add new members
+        $members = array(
+            'public'        => true,
+            'labels'        => array('name'=>'New member'),
+            'menu_icon'     => 'dashicons-businessman',
             'menu_position' => 10,
-            'supports' => array('title', 'editor', 'thumbnail'),
+            'supports'      => array('title', 'editor', 'thumbnail'),
             );
 
-            register_post_type('new member',$values);
-}
-
+            register_post_type('new member',$members);
+    }
     add_action('init','create_post_type');
 
 
